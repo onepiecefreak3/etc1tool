@@ -415,12 +415,12 @@ int main(int argc, char* argv[]) {
 							if (i == 0 || i == 2) {
 								fseek(f, y * 8 * 4 * w + x * 8 * 4 + i * (4 * w) + j * 4 + 3, 0);
 								fread(alpha, 1, 1, f);
-								pack[0] = alpha[0] & 0xF0;
+								pack[0] = (alpha[0] & 0xF0) >> 4;
 							}
 							else {
 								fseek(f, y * 8 * 4 * w + x * 8 * 4 + i * (4 * w) + j * 4 + 3, 0);
 								fread(alpha, 1, 1, f);
-								pack[0] |= alpha[0] >> 4;
+								pack[0] |= alpha[0] & 0xF0;
 								fwrite(pack, 1, 1, fout);
 							}
 						}
@@ -454,12 +454,12 @@ int main(int argc, char* argv[]) {
 							if (i == 0 || i == 2) {
 								fseek(f, y * 8 * 4 * w + x * 8 * 4 + i * (4 * w) + j * 4 + 3, 0);
 								fread(alpha, 1, 1, f);
-								pack[0] = alpha[0] & 0xF0;
+								pack[0] = (alpha[0] & 0xF0) >> 4;
 							}
 							else {
 								fseek(f, y * 8 * 4 * w + x * 8 * 4 + i * (4 * w) + j * 4 + 3, 0);
 								fread(alpha, 1, 1, f);
-								pack[0] |= alpha[0] >> 4;
+								pack[0] |= alpha[0] & 0xF0;
 								fwrite(pack, 1, 1, fout);
 							}
 						}
@@ -493,12 +493,12 @@ int main(int argc, char* argv[]) {
 							if (i == 4 || i == 6) {
 								fseek(f, y * 8 * 4 * w + x * 8 * 4 + i * (4 * w) + j * 4 + 3, 0);
 								fread(alpha, 1, 1, f);
-								pack[0] = alpha[0] & 0xF0;
+								pack[0] = (alpha[0] & 0xF0) >> 4;
 							}
 							else {
 								fseek(f, y * 8 * 4 * w + x * 8 * 4 + i * (4 * w) + j * 4 + 3, 0);
 								fread(alpha, 1, 1, f);
-								pack[0] |= alpha[0] >> 4;
+								pack[0] |= alpha[0] & 0xF0;
 								fwrite(pack, 1, 1, fout);
 							}
 						}
@@ -532,12 +532,12 @@ int main(int argc, char* argv[]) {
 							if (i == 4 || i == 6) {
 								fseek(f, y * 8 * 4 * w + x * 8 * 4 + i * (4 * w) + j * 4 + 3, 0);
 								fread(alpha, 1, 1, f);
-								pack[0] = alpha[0] & 0xF0;
+								pack[0] = (alpha[0] & 0xF0) >> 4;
 							}
 							else {
 								fseek(f, y * 8 * 4 * w + x * 8 * 4 + i * (4 * w) + j * 4 + 3, 0);
 								fread(alpha, 1, 1, f);
-								pack[0] |= alpha[0] >> 4;
+								pack[0] |= alpha[0] & 0xF0;
 								fwrite(pack, 1, 1, fout);
 							}
 						}
