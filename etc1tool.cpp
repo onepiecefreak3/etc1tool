@@ -98,8 +98,8 @@ int main(int argc, char* argv[]) {
 					block = switchEndianness(block);
 					rg_etc1::unpack_etc1_block(&block, pixels, false);
 					ptr = pixels;
-					for (x = 0; x < 4; x++)
-						for (y = 4; y < 8; y++) {
+					for (x = 4; x < 8; x++)
+						for (y = 0; y < 4; y++) {
 							buffer[(j * 8 * w) + (i * 8) + (x * w + y)] = *(ptr++);
 						}
 
@@ -114,8 +114,8 @@ int main(int argc, char* argv[]) {
 					block = switchEndianness(block);
 					rg_etc1::unpack_etc1_block(&block, pixels, false);
 					ptr = pixels;
-					for (x = 4; x < 8; x++)
-						for (y = 0; y < 4; y++) {
+					for (x = 0; x < 4; x++)
+						for (y = 4; y < 8; y++) {
 							buffer[(j * 8 * w) + (i * 8) + (x * w + y)] = *(ptr++);
 						}
 
@@ -277,6 +277,7 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	else {
+		rg_etc1::pack_etc1_block_init();
 		if (alpha==0) {
 			u32 pixels[4 * 4];
 			u32 block;
@@ -307,7 +308,6 @@ int main(int argc, char* argv[]) {
 						}
 					}
 					ptr = pixels;
-					rg_etc1::pack_etc1_block_init();
 					rg_etc1::pack_etc1_block(block2, ptr, rg_etc1::etc1_pack_params::etc1_pack_params());
 					block2[0] = switchEndianness(block2[0]);
 					fwrite(block2, 8, 1, fout);
@@ -329,7 +329,6 @@ int main(int argc, char* argv[]) {
 						}
 					}
 					ptr = pixels;
-					rg_etc1::pack_etc1_block_init();
 					rg_etc1::pack_etc1_block(block2, ptr, rg_etc1::etc1_pack_params::etc1_pack_params());
 					block2[0] = switchEndianness(block2[0]);
 					fwrite(block2, 8, 1, fout);
@@ -351,7 +350,6 @@ int main(int argc, char* argv[]) {
 						}
 					}
 					ptr = pixels;
-					rg_etc1::pack_etc1_block_init();
 					rg_etc1::pack_etc1_block(block2, ptr, rg_etc1::etc1_pack_params::etc1_pack_params());
 					block2[0] = switchEndianness(block2[0]);
 					fwrite(block2, 8, 1, fout);
@@ -373,7 +371,6 @@ int main(int argc, char* argv[]) {
 						}
 					}
 					ptr = pixels;
-					rg_etc1::pack_etc1_block_init();
 					rg_etc1::pack_etc1_block(block2, ptr, rg_etc1::etc1_pack_params::etc1_pack_params());
 					block2[0] = switchEndianness(block2[0]);
 					fwrite(block2, 8, 1, fout);
@@ -437,7 +434,6 @@ int main(int argc, char* argv[]) {
 						}
 					}
 					ptr = pixels;
-					rg_etc1::pack_etc1_block_init();
 					rg_etc1::pack_etc1_block(block2, ptr, rg_etc1::etc1_pack_params::etc1_pack_params());
 					block2[0] = switchEndianness(block2[0]);
 					fwrite(block2, 8, 1, fout);
@@ -476,7 +472,6 @@ int main(int argc, char* argv[]) {
 						}
 					}
 					ptr = pixels;
-					rg_etc1::pack_etc1_block_init();
 					rg_etc1::pack_etc1_block(block2, ptr, rg_etc1::etc1_pack_params::etc1_pack_params());
 					block2[0] = switchEndianness(block2[0]);
 					fwrite(block2, 8, 1, fout);
@@ -515,7 +510,6 @@ int main(int argc, char* argv[]) {
 						}
 					}
 					ptr = pixels;
-					rg_etc1::pack_etc1_block_init();
 					rg_etc1::pack_etc1_block(block2, ptr, rg_etc1::etc1_pack_params::etc1_pack_params());
 					block2[0] = switchEndianness(block2[0]);
 					fwrite(block2, 8, 1, fout);
@@ -554,7 +548,6 @@ int main(int argc, char* argv[]) {
 						}
 					}
 					ptr = pixels;
-					rg_etc1::pack_etc1_block_init();
 					rg_etc1::pack_etc1_block(block2, ptr, rg_etc1::etc1_pack_params::etc1_pack_params());
 					block2[0] = switchEndianness(block2[0]);
 					fwrite(block2, 8, 1, fout);
