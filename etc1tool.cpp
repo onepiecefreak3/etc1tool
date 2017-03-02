@@ -98,8 +98,8 @@ int main(int argc, char* argv[]) {
 					block = switchEndianness(block);
 					rg_etc1::unpack_etc1_block(&block, pixels, false);
 					ptr = pixels;
-					for (x = 4; x < 8; x++)
-						for (y = 0; y < 4; y++) {
+					for (x = 0; x < 4; x++)
+						for (y = 4; y < 8; y++) {
 							buffer[(j * 8 * w) + (i * 8) + (x * w + y)] = *(ptr++);
 						}
 
@@ -114,8 +114,8 @@ int main(int argc, char* argv[]) {
 					block = switchEndianness(block);
 					rg_etc1::unpack_etc1_block(&block, pixels, false);
 					ptr = pixels;
-					for (x = 0; x < 4; x++)
-						for (y = 4; y < 8; y++) {
+					for (x = 4; x < 8; x++)
+						for (y = 0; y < 4; y++) {
 							buffer[(j * 8 * w) + (i * 8) + (x * w + y)] = *(ptr++);
 						}
 
