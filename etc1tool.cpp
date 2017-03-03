@@ -142,6 +142,8 @@ int main(int argc, char* argv[]) {
 				}
 			}
 
+			cout << "\r";
+
 			fclose(f);
 
 			char out[1024];
@@ -265,6 +267,8 @@ int main(int argc, char* argv[]) {
 				}
 			}
 
+			cout << "\r";
+
 			fclose(f);
 
 			char out[1024];
@@ -381,6 +385,8 @@ int main(int argc, char* argv[]) {
 					cout << "\rCompressing... " << count << "/" << n << " blocks | " << percent << "%";
 				}
 			}
+
+			cout << "\r";
 
 			fclose(f);
 			fclose(fout);
@@ -558,6 +564,9 @@ int main(int argc, char* argv[]) {
 					cout << "\rCompressing... " << count << "/" << n << " blocks | " << percent << "%";
 				}
 			}
+
+			cout << "\r";
+
 			fclose(f);
 			fclose(fout);
 		}
